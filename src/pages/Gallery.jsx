@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import WhatsAppButton from "../components/WhatsAppButton";
@@ -6,55 +7,318 @@ import WhatsAppButton from "../components/WhatsAppButton";
 const galleryImages = [
   {
     image:
-      "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=85",
+      "/images/wedding-hall.avif",
     title: "Wedding Hall",
     category: "Wedding Hall",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=85",
+      "/images/flour-mill.avif",
     title: "Flour Mill",
     category: "Flour Mill",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1200&q=85",
+      "/images/fram.jpg",
     title: "Livestock",
     category: "Livestock",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1200&q=85",
+      "/images/water-plant.avif",
     title: "Water Plant",
     category: "Water Plant",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85",
+      "/images/farms.avif",
     title: "Najia Group Farms",
     category: "Farms",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=85",
+      "/images/Agriculture.avif",
     title: "Agriculture",
     category: "Farms",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1520637836862-4d197d17c55a?auto=format&fit=crop&w=1200&q=85",
-    title: "Our Livestock",
+      "/images/fram1.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram2.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram3.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram4.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram5.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram6.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram7.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram8.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram9.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram10.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram11.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram12.jpg",
+    title: "Livestock",
     category: "Livestock",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=1200&q=85",
-    title: "Group Activities",
-    category: "Najia Group",
+      "/images/fram13.jpg",
+    title: "Livestock",
+    category: "Livestock",
+  },
+  {
+    image:
+      "/images/fram14.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram15.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram16.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram17.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram18.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram19.jpg",
+    title: "Livestock",
+    category: "Livestock",
+  },
+  {
+    image:
+      "/images/fram20.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram21.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram22.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram23.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram24.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram25.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram26.jpg",
+    title: "Livestock",
+    category: "Livestock",
+  },
+  {
+    image:
+      "/images/fram27.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram28.jpg",
+    title: "Livestock",
+    category: "Livestock",
+  },
+  {
+    image:
+      "/images/fram29.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram30.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram31.jpg",
+    title: "Livestock",
+    category: "Livestock",
+  },
+  {
+    image:
+      "/images/fram32.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram33.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram34.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram35.jpg",
+    title: "Livestock",
+    category: "Livestock",
+  },
+  {
+    image:
+      "/images/fram36.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/fram37.jpg",
+    title: "Agriculture",
+    category: "Farms",
+  },
+  {
+    image:
+      "/images/hall.jpg",
+    title: "Wedding Hall",
+    category: "Wedding Hall",
+  },
+  {
+    image:
+      "/images/hall2.jpg",
+    title: "Wedding Hall",
+    category: "Wedding Hall",
+  },
+  {
+    image:
+      "/images/hall3.jpg",
+    title: "Wedding Hall",
+    category: "Wedding Hall",
+  },
+  {
+    image:
+      "/images/hall4.jpg",
+    title: "Wedding Hall",
+    category: "Wedding Hall",
+  },
+  {
+    image:
+      "/images/hall5.jpg",
+    title: "Wedding Hall",
+    category: "Wedding Hall",
+  },
+  {
+    image:
+      "/images/hall6.jpg",
+    title: "Wedding Hall",
+    category: "Wedding Hall",
+  },
+  {
+    image:
+      "/images/hall7.jpg",
+    title: "Wedding Hall",
+    category: "Wedding Hall",
   },
 ];
 
+
 function Gallery() {
+
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredImages =
+    activeCategory === "All"
+      ? galleryImages
+      : galleryImages.filter(
+          (item) => item.category === activeCategory
+        );
+
   return (
     <>
       <Navbar />
@@ -115,27 +379,75 @@ function Gallery() {
           {/* FILTER BUTTONS */}
           <div className="gallery-filters">
 
-            <button className="active">
+            <button
+              className={activeCategory === "All" ? "active" : ""}
+              onClick={() => setActiveCategory("All")}
+            >
               All
             </button>
 
-            <button>
+            <button
+              className={
+                activeCategory === "Wedding Hall"
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setActiveCategory("Wedding Hall")
+              }
+            >
               Wedding Hall
             </button>
 
-            <button>
+            <button
+              className={
+                activeCategory === "Flour Mill"
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setActiveCategory("Flour Mill")
+              }
+            >
               Flour Mill
             </button>
 
-            <button>
+            <button
+              className={
+                activeCategory === "Livestock"
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setActiveCategory("Livestock")
+              }
+            >
               Livestock
             </button>
 
-            <button>
+            <button
+              className={
+                activeCategory === "Water Plant"
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setActiveCategory("Water Plant")
+              }
+            >
               Water Plant
             </button>
 
-            <button>
+            <button
+              className={
+                activeCategory === "Farms"
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setActiveCategory("Farms")
+              }
+            >
               Farms
             </button>
 
@@ -145,7 +457,7 @@ function Gallery() {
           {/* IMAGES */}
           <div className="gallery-grid">
 
-            {galleryImages.map((item, index) => (
+            {filteredImages.map((item, index) => (
 
               <div
                 className={`gallery-item gallery-item-${index + 1}`}

@@ -68,7 +68,10 @@ function Contact() {
 
                   <div>
                     <span>PHONE</span>
-                    <h4>+92 300 1234567</h4>
+                    <h5>Sher Zaman Dahri</h5>
+                    <h4>+92 3073257423</h4>
+                    <h5>Aziz Ahmed Dahri</h5>
+                    <h4>+92 3083129311</h4>
                   </div>
 
                 </div>
@@ -82,7 +85,7 @@ function Contact() {
 
                   <div>
                     <span>EMAIL</span>
-                    <h4>info@najiagroup.com</h4>
+                    <h4>najiafarms@gmail.com</h4>
                   </div>
 
                 </div>
@@ -96,7 +99,7 @@ function Contact() {
 
                   <div>
                     <span>LOCATION</span>
-                    <h4>Karachi, Pakistan</h4>
+                    <h4>Dahri Petrol Pump Near Shahpur Chakar</h4>
                   </div>
 
                 </div>
@@ -110,7 +113,7 @@ function Contact() {
 
                   <div>
                     <span>BUSINESS HOURS</span>
-                    <h4>Monday - Saturday</h4>
+                    <h4>Monday - Sunday</h4>
                     <small>9:00 AM - 6:00 PM</small>
                   </div>
 
