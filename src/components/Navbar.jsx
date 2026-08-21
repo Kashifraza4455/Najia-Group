@@ -75,14 +75,6 @@ function Navbar() {
             >
               Businesses
             </Link>
-
-            <Link
-              to="/vision-mission"
-              onClick={closeMenu}
-            >
-              Vision & Values
-            </Link>
-
             <Link
               to="/gallery"
               onClick={closeMenu}
