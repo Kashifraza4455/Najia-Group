@@ -44,7 +44,7 @@ const businesses = [
     shortDescription:
       "Healthy livestock managed with professional care.",
     description:
-      "Najia Group Livestock focuses on healthy animals, responsible care and modern livestock management practices.",
+      "Najia Group Livestock focuses on healthy animals, responsible care and modern livestock management practices. We also Purchasing and Saleing For example Cows, Bufflows, Bulls and Goats etc ",
     image: "/images/fram.jpg",
 
     features: [
@@ -82,7 +82,7 @@ const businesses = [
     shortDescription:
       "Agriculture and farming focused on growth and sustainability.",
     description:
-      "Najia Group Farms represents our commitment to agriculture, responsible farming and sustainable growth.",
+      "Najia Group Agriculture and Fruit Farms represents our commitment to agriculture, responsible farming and sustainable growth. Fruit farm:  mangoes lemon, jujube, guava, watermelon, melon, chikoo, Grewia. Agriculture Farm: Wheat crop, cotton crop onion crop, mustard crop chillies crop",
     image: "/images/fram39.jpg",
 
     features: [
