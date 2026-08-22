@@ -7,7 +7,7 @@ import WhatsAppButton from "../components/WhatsAppButton";
 const galleryImages = [
   {
     image:
-      "/images/wedding-hall.avif",
+      "/images/hall.jpg",
     title: "Wedding Hall",
     category: "Wedding Hall",
   },
@@ -31,7 +31,7 @@ const galleryImages = [
   },
   {
     image:
-      "/images/farms.avif",
+      "/images/fram39.jpg",
     title: "Najia Group Farms",
     category: "Farms",
   },

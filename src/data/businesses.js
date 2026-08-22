@@ -7,7 +7,7 @@ const businesses = [
       "A beautiful and spacious venue for weddings and special events.",
     description:
       "Najia Group Wedding Hall provides a beautiful and comfortable environment for weddings, receptions, family functions and special occasions. Our goal is to make every event memorable.",
-    image: "/images/wedding-hall.avif",
+    image: "/images/hall.jpg",
 
     features: [
       "Spacious Event Hall",
@@ -83,7 +83,7 @@ const businesses = [
       "Agriculture and farming focused on growth and sustainability.",
     description:
       "Najia Group Farms represents our commitment to agriculture, responsible farming and sustainable growth.",
-    image: "/images/farms.avif",
+    image: "/images/fram39.jpg",
 
     features: [
       "Agricultural Development",

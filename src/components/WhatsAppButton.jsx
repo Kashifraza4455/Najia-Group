@@ -1,5 +1,5 @@
 function WhatsAppButton() {
-  const phoneNumber = "03266719872";
+  const phoneNumber = "03073257423";
 
   const message =
     "Hello Najia Group, I would like to get more information.";

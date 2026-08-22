@@ -1,7 +1,67 @@
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import WhatsAppButton from "../components/WhatsAppButton";
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState(""); // "" | "sending" | "success" | "error"
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // page reload / navigation rokne ke liye
+
+    setStatus("sending");
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/kashifrazadahri2002@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            subject: formData.subject,
+            message: formData.message,
+            _subject: "New Message from Najia Group Website",
+          }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        console.error(result);
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -68,8 +128,10 @@ function Contact() {
 
                   <div>
                     <span>PHONE</span>
+
                     <h5>Sher Zaman Dahri</h5>
                     <h4>+92 3073257423</h4>
+
                     <h5>Aziz Ahmed Dahri</h5>
                     <h4>+92 3083129311</h4>
                   </div>
@@ -161,10 +223,11 @@ function Contact() {
                   </h3>
                 </div>
 
-                <form>
+                <form onSubmit={handleSubmit}>
 
                   <div className="row">
 
+                    {/* NAME */}
                     <div className="col-md-6">
                       <div className="contact-field">
 
@@ -172,12 +235,17 @@ function Contact() {
 
                         <input
                           type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
                           placeholder="Enter your name"
+                          required
                         />
 
                       </div>
                     </div>
 
+                    {/* EMAIL */}
                     <div className="col-md-6">
                       <div className="contact-field">
 
@@ -185,7 +253,11 @@ function Contact() {
 
                         <input
                           type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
                           placeholder="Enter your email"
+                          required
                         />
 
                       </div>
@@ -195,6 +267,7 @@ function Contact() {
 
                   <div className="row">
 
+                    {/* PHONE */}
                     <div className="col-md-6">
                       <div className="contact-field">
 
@@ -202,45 +275,57 @@ function Contact() {
 
                         <input
                           type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
                           placeholder="Enter your phone number"
+                          required
                         />
 
                       </div>
                     </div>
 
+                    {/* SUBJECT */}
                     <div className="col-md-6">
                       <div className="contact-field">
 
                         <label>Subject</label>
 
-                        <select>
+                        <select
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          required
+                        >
+
                           <option value="">
                             Select a subject
                           </option>
 
-                          <option>
+                          <option value="Wedding Hall">
                             Wedding Hall
                           </option>
 
-                          <option>
+                          <option value="Flour Mill">
                             Flour Mill
                           </option>
 
-                          <option>
+                          <option value="Livestock">
                             Livestock
                           </option>
 
-                          <option>
+                          <option value="Water Plant">
                             Water Plant
                           </option>
 
-                          <option>
+                          <option value="Farms">
                             Farms
                           </option>
 
-                          <option>
+                          <option value="General Inquiry">
                             General Inquiry
                           </option>
+
                         </select>
 
                       </div>
@@ -248,13 +333,18 @@ function Contact() {
 
                   </div>
 
+                  {/* MESSAGE */}
                   <div className="contact-field">
 
                     <label>Message</label>
 
                     <textarea
+                      name="message"
                       rows="6"
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="Write your message here..."
+                      required
                     ></textarea>
 
                   </div>
@@ -262,11 +352,25 @@ function Contact() {
                   <button
                     type="submit"
                     className="contact-submit"
+                    disabled={status === "sending"}
                   >
-                    Send Message
+                    {status === "sending" ? "Sending..." : "Send Message"}
 
                     <i className="bi bi-arrow-right"></i>
                   </button>
+
+                  {/* STATUS MESSAGES */}
+                  {status === "success" && (
+                    <p style={{ color: "green", marginTop: "10px" }}>
+                      Message sent successfully! We'll get back to you soon.
+                    </p>
+                  )}
+
+                  {status === "error" && (
+                    <p style={{ color: "red", marginTop: "10px" }}>
+                      Something went wrong. Please try again or contact us via WhatsApp.
+                    </p>
+                  )}
 
                 </form>
 
@@ -302,7 +406,7 @@ function Contact() {
             </div>
 
             <a
-              href="https://wa.me/03266719872"
+              href="https://wa.me/923073257423"
               target="_blank"
               rel="noreferrer"
               className="contact-whatsapp-btn"
@@ -317,8 +421,6 @@ function Contact() {
         </div>
 
       </section>
-
-
 
       <WhatsAppButton />
     </>
