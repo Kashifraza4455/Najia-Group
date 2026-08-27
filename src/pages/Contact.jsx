@@ -190,7 +190,7 @@ function Contact() {
                       <i className="bi bi-facebook"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://www.instagram.com/najiagroups?igsi=ODAxaHB6ZzF2YXEw&utm_source=ig_contact_invite" target="blank">
                       <i className="bi bi-instagram"></i>
                     </a>
 
