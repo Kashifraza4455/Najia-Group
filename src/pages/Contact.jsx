@@ -186,7 +186,7 @@ function Contact() {
                   <span>FOLLOW US</span>
 
                   <div>
-                    <a href="#">
+                    <a href="https://www.facebook.com/share/1FRjHMoDHQ/" target="blank">
                       <i className="bi bi-facebook"></i>
                     </a>
 
@@ -198,7 +198,7 @@ function Contact() {
                       <i className="bi bi-linkedin"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://whatsapp.com/channel/0029Vb9LqXnJZg4Elk1qvn24" target="blank">
                       <i className="bi bi-whatsapp"></i>
                     </a>
                   </div>
