@@ -44,7 +44,7 @@ const businesses = [
     shortDescription:
       "Healthy livestock managed with professional care.",
     description:
-      "Najia Group Livestock focuses on healthy animals, responsible care and modern livestock management practices. We also Purchasing and Saleing For example Cows, Bufflows, Bulls and Goats etc ",
+      "Najia Group Livestock focuses on healthy animals, responsible care and modern livestock management practices. We also Purchasing and Saleing For example Cows, Bufflows, Bulls and Goats etc. We also selling high quality cattle feed ",
     image: "/images/fram.jpg",
 
     features: [
@@ -82,7 +82,7 @@ const businesses = [
     shortDescription:
       "Agriculture and farming focused on growth and sustainability.",
     description:
-      "Najia Group Agriculture and Fruit Farms represents our commitment to agriculture, responsible farming and sustainable growth. Fruit farm:  mangoes lemon, jujube, guava, watermelon, melon, chikoo, Grewia. Agriculture Farm: Wheat crop, cotton crop onion crop, mustard crop chillies crop",
+      "Najia Group Agriculture and Fruit Farms represents our commitment to agriculture, responsible farming and sustainable growth. Fruit farm:  mangoes lemon, jujube, guava, watermelon, melon, chikoo, Grewia. Agriculture Farm: Wheat crop, cotton crop onion crop, mustard crop chillies crop.We maintaining fruit farm on drip irrigation system. A drip irrigation system delivers water and nutrients directly to plant roots drop by drop, saving up to 70–90% more water than traditional flood methods.",
     image: "/images/fram39.jpg",
 
     features: [
