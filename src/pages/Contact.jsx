@@ -24,7 +24,7 @@ function Contact() {
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/kashifrazadahri2002@gmail.com",
+        "https://formsubmit.co/ajax/najiafarms66@gmail.com",
         {
           method: "POST",
           headers: {
@@ -130,10 +130,10 @@ function Contact() {
                     <span>PHONE</span>
 
                     <h5>Sher Zaman Dahri</h5>
-                    <h4>+92 3073257423</h4>
+                    <h4>0307-3257423</h4>
 
                     <h5>Aziz Ahmed Dahri</h5>
-                    <h4>+92 3083129311</h4>
+                    <h4>0308-3129311</h4>
                   </div>
 
                 </div>
@@ -147,7 +147,7 @@ function Contact() {
 
                   <div>
                     <span>EMAIL</span>
-                    <h4>najiafarms@gmail.com</h4>
+                    <h4>najiafarms66@gmail.com</h4>
                   </div>
 
                 </div>

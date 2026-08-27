@@ -262,7 +262,7 @@ function BusinessDetail() {
             <div className="cta-buttons">
 
               <a
-                href="https://wa.me/03266719872"
+                href="https://wa.me/03073257423"
                 target="_blank"
                 rel="noreferrer"
                 className="cta-whatsapp"
