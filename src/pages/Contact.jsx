@@ -91,7 +91,7 @@ I want to book the Wedding Hall.
 Name: ${name}
 Phone: ${phone}
 Event Date: ${date}
-Expected Guests: ${guests}
+Expected Tables: ${guests}
 
 Please let me know about availability and booking details.
 `;
