@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import BusinessDetail from "./pages/BusinessDetail";
-import Booking from "./pages/Booking";
+// import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
 import Businesses from "./pages/Businesses";
 import Gallery from "./pages/Gallery";
@@ -49,11 +49,6 @@ function App() {
         element={<Contact />}
       />
 
-      {/* BOOKING */}
-      <Route
-        path="/booking"
-        element={<Booking />}
-      />
 
     </Routes>
   );

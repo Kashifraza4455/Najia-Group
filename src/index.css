@@ -1867,6 +1867,9 @@ a {
     );
 
   color: white;
+
+  position: relative;
+  top: 90px;
 }
 
 .contact-business-content {

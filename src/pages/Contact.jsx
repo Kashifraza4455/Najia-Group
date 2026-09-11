@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+// import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 
 function Contact() {
@@ -11,14 +12,20 @@ function Contact() {
     message: "",
   });
 
-  const [status, setStatus] = useState(""); // "" | "sending" | "success" | "error"
+  const [status, setStatus] = useState("");
 
+  // =========================
+  // CONTACT FORM
+  // =========================
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // page reload / navigation rokne ke liye
+    e.preventDefault();
 
     setStatus("sending");
 
@@ -45,6 +52,7 @@ function Contact() {
 
       if (response.ok) {
         setStatus("success");
+
         setFormData({
           name: "",
           email: "",
@@ -62,11 +70,50 @@ function Contact() {
     }
   };
 
+  // =========================
+  // WEDDING HALL BOOKING
+  // =========================
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+
+    const bookingFormData = new FormData(e.target);
+
+    const name = bookingFormData.get("bookingName");
+    const phone = bookingFormData.get("bookingPhone");
+    const date = bookingFormData.get("bookingDate");
+    const guests = bookingFormData.get("bookingGuests");
+
+    const message = `
+Hello Najia Group,
+
+I want to book the Wedding Hall.
+
+Name: ${name}
+Phone: ${phone}
+Event Date: ${date}
+Expected Guests: ${guests}
+
+Please let me know about availability and booking details.
+`;
+
+    window.open(
+      `https://wa.me/923083129311?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+
+    e.target.reset();
+  };
+
   return (
     <>
+      {/* =========================
+          NAVBAR
+      ========================= */}
       <Navbar />
 
-      {/* CONTACT HERO */}
+      {/* =========================
+          CONTACT HERO
+      ========================= */}
       <section className="contact-hero">
         <div className="contact-hero-overlay"></div>
 
@@ -87,7 +134,9 @@ function Contact() {
         </div>
       </section>
 
-      {/* CONTACT SECTION */}
+      {/* =========================
+          CONTACT SECTION
+      ========================= */}
       <section className="contact-main">
         <div className="container">
 
@@ -107,9 +156,10 @@ function Contact() {
 
           <div className="row g-4">
 
-            {/* CONTACT INFO */}
+            {/* =========================
+                CONTACT INFORMATION
+            ========================= */}
             <div className="col-lg-5">
-
               <div className="contact-info-card">
 
                 <h3>Contact Information</h3>
@@ -147,7 +197,10 @@ function Contact() {
 
                   <div>
                     <span>EMAIL</span>
-                    <h4>najiafarms66@gmail.com</h4>
+
+                    <h4>
+                      najiafarms66@gmail.com
+                    </h4>
                   </div>
 
                 </div>
@@ -161,7 +214,10 @@ function Contact() {
 
                   <div>
                     <span>LOCATION</span>
-                    <h4>Dahri Petrol Pump Near Shahpur Chakar</h4>
+
+                    <h4>
+                      Dahri Petrol Pump Near Shahpur Chakar
+                    </h4>
                   </div>
 
                 </div>
@@ -175,22 +231,38 @@ function Contact() {
 
                   <div>
                     <span>BUSINESS HOURS</span>
-                    <h4>Monday - Sunday</h4>
-                    <small>9:00 AM - 6:00 PM</small>
+
+                    <h4>
+                      Monday - Sunday
+                    </h4>
+
+                    <small>
+                      9:00 AM - 6:00 PM
+                    </small>
                   </div>
 
                 </div>
 
+                {/* SOCIAL MEDIA */}
                 <div className="contact-social">
 
                   <span>FOLLOW US</span>
 
                   <div>
-                    <a href="https://www.facebook.com/share/1FRjHMoDHQ/" target="blank">
+
+                    <a
+                      href="https://www.facebook.com/share/1FRjHMoDHQ/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <i className="bi bi-facebook"></i>
                     </a>
 
-                    <a href="https://www.instagram.com/najiagroups?igsi=ODAxaHB6ZzF2YXEw&utm_source=ig_contact_invite" target="blank">
+                    <a
+                      href="https://www.instagram.com/najiagroups?igsi=ODAxaHB6ZzF2YXEw&utm_source=ig_contact_invite"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <i className="bi bi-instagram"></i>
                     </a>
 
@@ -198,29 +270,37 @@ function Contact() {
                       <i className="bi bi-linkedin"></i>
                     </a>
 
-                    <a href="https://whatsapp.com/channel/0029Vb9LqXnJZg4Elk1qvn24" target="blank">
+                    <a
+                      href="https://whatsapp.com/channel/0029Vb9LqXnJZg4Elk1qvn24"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <i className="bi bi-whatsapp"></i>
                     </a>
+
                   </div>
 
                 </div>
 
               </div>
-
             </div>
 
-            {/* CONTACT FORM */}
+            {/* =========================
+                CONTACT FORM
+            ========================= */}
             <div className="col-lg-7">
 
               <div className="contact-form-card">
 
                 <div className="form-top">
+
                   <span>SEND US A MESSAGE</span>
 
                   <h3>
                     How Can We
                     <strong> Help You?</strong>
                   </h3>
+
                 </div>
 
                 <form onSubmit={handleSubmit}>
@@ -229,6 +309,7 @@ function Contact() {
 
                     {/* NAME */}
                     <div className="col-md-6">
+
                       <div className="contact-field">
 
                         <label>Your Name</label>
@@ -243,10 +324,12 @@ function Contact() {
                         />
 
                       </div>
+
                     </div>
 
                     {/* EMAIL */}
                     <div className="col-md-6">
+
                       <div className="contact-field">
 
                         <label>Email Address</label>
@@ -261,6 +344,7 @@ function Contact() {
                         />
 
                       </div>
+
                     </div>
 
                   </div>
@@ -269,6 +353,7 @@ function Contact() {
 
                     {/* PHONE */}
                     <div className="col-md-6">
+
                       <div className="contact-field">
 
                         <label>Phone Number</label>
@@ -283,10 +368,12 @@ function Contact() {
                         />
 
                       </div>
+
                     </div>
 
                     {/* SUBJECT */}
                     <div className="col-md-6">
+
                       <div className="contact-field">
 
                         <label>Subject</label>
@@ -300,10 +387,6 @@ function Contact() {
 
                           <option value="">
                             Select a subject
-                          </option>
-
-                          <option value="Wedding Hall">
-                            Wedding Hall
                           </option>
 
                           <option value="Flour Mill">
@@ -329,6 +412,7 @@ function Contact() {
                         </select>
 
                       </div>
+
                     </div>
 
                   </div>
@@ -349,26 +433,44 @@ function Contact() {
 
                   </div>
 
+                  {/* SUBMIT */}
                   <button
                     type="submit"
                     className="contact-submit"
                     disabled={status === "sending"}
                   >
-                    {status === "sending" ? "Sending..." : "Send Message"}
+
+                    {status === "sending"
+                      ? "Sending..."
+                      : "Send Message"}
 
                     <i className="bi bi-arrow-right"></i>
+
                   </button>
 
-                  {/* STATUS MESSAGES */}
+                  {/* SUCCESS */}
                   {status === "success" && (
-                    <p style={{ color: "green", marginTop: "10px" }}>
-                      Message sent successfully! We'll get back to you soon.
+                    <p
+                      style={{
+                        color: "green",
+                        marginTop: "10px",
+                      }}
+                    >
+                      Message sent successfully!
+                      We'll get back to you soon.
                     </p>
                   )}
 
+                  {/* ERROR */}
                   {status === "error" && (
-                    <p style={{ color: "red", marginTop: "10px" }}>
-                      Something went wrong. Please try again or contact us via WhatsApp.
+                    <p
+                      style={{
+                        color: "red",
+                        marginTop: "10px",
+                      }}
+                    >
+                      Something went wrong. Please try again
+                      or contact us via WhatsApp.
                     </p>
                   )}
 
@@ -379,11 +481,290 @@ function Contact() {
             </div>
 
           </div>
-
         </div>
       </section>
 
-      {/* BUSINESS INQUIRY */}
+
+
+      {/* =========================
+          WEDDING HALL BOOKING
+      ========================= */}
+      <section className="contact-main">
+
+        <div className="container">
+
+          {/* BOOKING HEADING */}
+          <div className="contact-heading">
+
+            <span>WEDDING HALL</span>
+
+            <h2>
+              Book Your
+              <strong> Special Event</strong>
+            </h2>
+
+            <p>
+              Share your event details with us and our team
+              will contact you regarding availability and booking.
+            </p>
+
+          </div>
+
+          <div className="row g-4">
+
+            {/* =========================
+                BOOKING INFORMATION
+            ========================= */}
+            <div className="col-lg-5">
+
+              <div className="contact-info-card">
+
+                <h3>
+                  Wedding Hall Booking
+                </h3>
+
+                <p className="contact-info-intro">
+                  Make your special day memorable with Najia
+                  Group. Send us your event details and connect
+                  with our team directly on WhatsApp.
+                </p>
+
+                {/* EVENT DATE */}
+                <div className="contact-info-item">
+
+                  <div className="contact-info-icon">
+                    <i className="bi bi-calendar-event"></i>
+                  </div>
+
+                  <div>
+
+                    <span>EVENT DATE</span>
+
+                    <h4>
+                      Choose your preferred event date
+                    </h4>
+
+                  </div>
+
+                </div>
+
+                {/* GUESTS */}
+                <div className="contact-info-item">
+
+                  <div className="contact-info-icon">
+                    <i className="bi bi-people-fill"></i>
+                  </div>
+
+                  <div>
+
+                    <span>GUESTS</span>
+
+                    <h4>
+                      Tell us your expected number of guests
+                    </h4>
+
+                  </div>
+
+                </div>
+
+                {/* WHATSAPP */}
+                <div className="contact-info-item">
+
+                  <div className="contact-info-icon">
+                    <i className="bi bi-whatsapp"></i>
+                  </div>
+
+                  <div>
+
+                    <span>BOOKING</span>
+
+                    <h4>
+                      Booking request will open on WhatsApp
+                    </h4>
+
+                  </div>
+
+                </div>
+
+                {/* BOOKING WHATSAPP */}
+                <div className="contact-social">
+
+                  <span>BOOK DIRECTLY</span>
+
+                  <div>
+
+                    <a
+                      href="https://wa.me/923083129311"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="bi bi-whatsapp"></i>
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* =========================
+                BOOKING FORM
+            ========================= */}
+            <div className="col-lg-7">
+
+              <div className="contact-form-card">
+
+                <div className="form-top">
+
+                  <span>
+                    WEDDING HALL BOOKING
+                  </span>
+
+                  <h3>
+                    Reserve Your
+                    <strong> Special Day?</strong>
+                  </h3>
+
+                </div>
+
+                <form onSubmit={handleBookingSubmit}>
+
+                  {/* NAME + PHONE */}
+                  <div className="row">
+
+                    {/* NAME */}
+                    <div className="col-md-6">
+
+                      <div className="contact-field">
+
+                        <label>
+                          Your Name
+                        </label>
+
+                        <input
+                          type="text"
+                          name="bookingName"
+                          placeholder="Enter your name"
+                          required
+                        />
+
+                      </div>
+
+                    </div>
+
+                    {/* PHONE */}
+                    <div className="col-md-6">
+
+                      <div className="contact-field">
+
+                        <label>
+                          Phone Number
+                        </label>
+
+                        <input
+                          type="tel"
+                          name="bookingPhone"
+                          placeholder="Enter your phone number"
+                          required
+                        />
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  {/* DATE + GUESTS */}
+                  <div className="row">
+
+                    {/* DATE */}
+                    <div className="col-md-6">
+
+                      <div className="contact-field">
+
+                        <label>
+                          Event Date
+                        </label>
+
+                        <input
+                          type="date"
+                          name="bookingDate"
+                          required
+                        />
+
+                      </div>
+
+                    </div>
+
+                    {/* GUESTS */}
+                    <div className="col-md-6">
+
+                      <div className="contact-field">
+
+                        <label>
+                          Expected Tables
+                        </label>
+
+                        <select
+                          name="bookingGuests"
+                          required
+                        >
+
+                          <option value="">
+                            Select Tables
+                          </option>
+
+                          <option value="Under 100">
+                            Under 30
+                          </option>
+
+                          <option value="100 - 300">
+                            50 - 100
+                          </option>
+
+                          <option value="300 - 500">
+                            200 - 300
+                          </option>
+
+                          <option value="500+">
+                            400+
+                          </option>
+
+                        </select>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  {/* BOOKING BUTTON */}
+                  <button
+                    type="submit"
+                    className="contact-submit"
+                  >
+
+                    Send Booking Request
+
+                    <i className="bi bi-whatsapp"></i>
+
+                  </button>
+
+                </form>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+              {/* =========================
+          BUSINESS INQUIRY
+      ========================= */}
       <section className="contact-business-section">
 
         <div className="container">
@@ -391,6 +772,7 @@ function Contact() {
           <div className="contact-business-content">
 
             <div>
+
               <span>BUSINESS WITH US</span>
 
               <h2>
@@ -403,17 +785,20 @@ function Contact() {
                 We are always open to exploring new
                 opportunities, partnerships and ideas.
               </p>
+
             </div>
 
             <a
-              href="https://wa.me/923073257423"
+              href="https://wa.me/923083129311"
               target="_blank"
               rel="noreferrer"
               className="contact-whatsapp-btn"
             >
+
               <i className="bi bi-whatsapp"></i>
 
               Chat With Us
+
             </a>
 
           </div>
@@ -421,8 +806,16 @@ function Contact() {
         </div>
 
       </section>
+        
 
+      </section>
+
+
+      {/* =========================
+          FLOATING WHATSAPP BUTTON
+      ========================= */}
       <WhatsAppButton />
+
     </>
   );
 }
